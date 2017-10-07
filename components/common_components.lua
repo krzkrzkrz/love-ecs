@@ -1,10 +1,11 @@
 local Component = require('libs/component')
 
 return {
-  new_body = function(x, y)
+  new_body = function(x, y, speed)
     local body = Component.new 'body'
     body.x = x
     body.y = y
+    body.speed = speed
     return body
   end,
 

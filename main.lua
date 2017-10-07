@@ -9,12 +9,12 @@ function love.load()
   World:register(new_renderer_system())
 
   World:create()
-    :madd(coms.new_body(100, 100))
+    :madd(coms.new_body(100, 100, 20))
     :madd(coms.new_rectangle_component())
 
   World:assemble({
-    { coms.new_body, 300, 100 },
-    { coms.new_rectangle_component },
+    { coms.new_body, 300, 100, 20 },
+    { coms.new_rectangle_component }
   })
 end
 
