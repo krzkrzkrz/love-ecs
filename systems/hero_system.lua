@@ -1,18 +1,18 @@
 local System = require('libs/system')
 
-local function new_renderer_system()
+local function hero_system()
   local renderer = System.new { 'body', 'rect' }
 
   function renderer:load(entity)
-    print 'found one!'
+    print 'found here!'
   end
 
   function renderer:update(dt, entity)
     local body = entity:get 'body'
 
-    -- if love.keyboard.isDown('a') then
-    --   body.x = body.x - (body.speed * dt)
-    -- end
+    if love.keyboard.isDown('a') then
+      body.x = body.x - (body.speed * dt)
+    end
   end
 
   function renderer:draw(entity)
@@ -24,4 +24,4 @@ local function new_renderer_system()
   return renderer
 end
 
-return new_renderer_system
+return hero_system

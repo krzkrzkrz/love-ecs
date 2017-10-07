@@ -38,31 +38,31 @@ function World:getAllWith(requires)
   return matched
 end
 
-function World:assemble(components)
-  local ent = self:create()
-
-  for i, v in ipairs(components) do
-    assert(type(v) == 'table', 'World:assemble requires a table of tables')
-    assert(#v > 0)
-
-    local fn = v[1]
-    assert(type(fn) == 'function')
-
-    if #v == 1 then
-      ent:add(fn())
-
-    else
-      local args = {}
-      for i = 2, #v do
-        table.insert(args, v[i])
-      end
-
-      ent:add(fn(unpack(args)))
-    end
-  end
-
-  return ent
-end
+-- function World:assemble(components)
+--   local ent = self:create()
+--
+--   for i, v in ipairs(components) do
+--     assert(type(v) == 'table', 'World:assemble requires a table of tables')
+--     assert(#v > 0)
+--
+--     local fn = v[1]
+--     assert(type(fn) == 'function')
+--
+--     if #v == 1 then
+--       ent:add(fn())
+--
+--     else
+--       local args = {}
+--       for i = 2, #v do
+--         table.insert(args, v[i])
+--       end
+--
+--       ent:add(fn(unpack(args)))
+--     end
+--   end
+--
+--   return ent
+-- end
 
 function World:update(dt)
   for i = #self.entities, 1, -1 do
